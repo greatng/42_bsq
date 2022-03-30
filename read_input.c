@@ -41,14 +41,7 @@ int	temp_map(char *file_path)
 {
 	int	fd;
 
-	fd = open(file_path, O_WRONLY);
-	if (fd > 1)
-	{
-		fd = open(file_path, O_TRUNC);
-		fd = open(file_path, O_WRONLY);
-	}
-	else
-		fd = open(file_path, O_WRONLY | O_CREAT);
+	fd = open(file_path, O_WRONLY | O_CREAT | O_TRUNC, 0644);
 	if (fd < 2)
 		return (0);
 	return (fd);
